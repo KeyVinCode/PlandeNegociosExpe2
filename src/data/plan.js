@@ -37,14 +37,6 @@ export const riesgos = [
   ['Alza de insumos', 'Proveedores: 33,5 % de los egresos.', 'Compras en volumen y acuerdos de precio.'],
 ]
 
-export const preguntas = [
-  ['¿Por qué pedir financiación si la operación ya genera caja?', 'Porque la inversión completa ($2,9 millones) no está en la tesorería. Sin financiación, con toda la inversión, el año cierra en +$108.768, y con ventas 20 % más bajas queda en déficit de $1,0 millones.'],
-  ['¿Por qué reducir el crédito de $3,5 millones a $600.000?', 'El flujo no lo necesita, la cuota anual del crédito grande (unos $1,4 millones) no está en el presupuesto y el dinero llegaba tarde. Un crédito pequeño con desembolso antes del 2.º cuatrimestre resuelve el problema real.'],
-  ['¿Qué pasa si el incentivo no llega?', 'Se activa el plan B: se aplaza el inmueble, la necesidad baja a $1,35 millones y se cubre con crédito, recursos propios, crowdfunding y excedente del 1.º cuatrimestre.'],
-  ['¿Cómo saben que van a duplicar las ventas?', 'El anexo no explica los supuestos de precio y volumen: es una debilidad. Por eso proponemos metas por cuatrimestre, preventas para validar la demanda y una prueba de estrés con ventas 20 % más bajas.'],
-  ['¿Cómo manejan el 2.º cuatrimestre?', 'Con una reserva de $750.000 formada antes, desembolsos ubicados en ese periodo, publicidad sostenida y campañas para fechas de ese cuatrimestre.'],
-]
-
 export const conclusiones = [
   'Dulce Placer es viable: la operación deja +$2.627.128 al año.',
   'El riesgo está en el 2.º cuatrimestre y en la concentración del 3.º, no en el año completo.',

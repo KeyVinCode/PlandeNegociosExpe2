@@ -1,5 +1,5 @@
 import { motion, useScroll } from 'framer-motion'
-export const links = [['inicio', 'Inicio'], ['partida', 'Punto de partida'], ['flujo', 'Flujo de caja'], ['inversion', 'Inversión'], ['financiamiento', 'Financiamiento'], ['escenarios', 'Escenarios'], ['riesgos', 'Riesgos'], ['defensa', 'Defensa'], ['referencias', 'Referencias']]
+export const links = [['inicio', 'Inicio'], ['partida', 'Punto de partida'], ['flujo', 'Flujo de caja'], ['inversion', 'Inversión'], ['financiamiento', 'Financiamiento'], ['escenarios', 'Escenarios'], ['riesgos', 'Riesgos'], ['conclusiones', 'Conclusiones'], ['referencias', 'Referencias']]
 export default function Nav() {
   const { scrollYProgress } = useScroll()
   return (

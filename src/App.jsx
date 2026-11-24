@@ -6,8 +6,8 @@ import Inversion from './sections/Inversion'
 import Financiamiento from './sections/Financiamiento'
 import Escenarios from './sections/Escenarios'
 import Riesgos from './sections/Riesgos'
-import Defensa from './sections/Defensa'
+import Conclusiones from './sections/Conclusiones'
 import Referencias from './components/Referencias'
 export default function App() {
-  return (<><Nav /><Hero /><Partida /><Flujo /><Inversion /><Financiamiento /><Escenarios /><Riesgos /><Defensa /><Referencias /></>)
+  return (<><Nav /><Hero /><Partida /><Flujo /><Inversion /><Financiamiento /><Escenarios /><Riesgos /><Conclusiones /><Referencias /></>)
 }

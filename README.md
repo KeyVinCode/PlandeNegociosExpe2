@@ -1,8 +1,8 @@
 # Dulce Placer · Plan de negocios interactivo
 
 Sitio web (SPA) que presenta el plan de negocios de **Dulce Placer** de forma interactiva:
-punto de partida, flujo de caja, inversión, financiamiento, escenarios, riesgos, defensa del
-proyecto y referencias.
+punto de partida, flujo de caja, inversión, financiamiento, escenarios, riesgos, conclusiones y
+referencias.
 
 > 🌐 **Demo:** https://keyvincode.github.io/PlandeNegociosExpe2/
 
