@@ -9,7 +9,7 @@ export default function Escenarios() {
   const flujo = 108768 + (f - 1) * 5602300 + (fin ? 4705000 : 0)
   const sel = escenarios.find((e) => e.k === k)
   return (
-    <Section id="escenarios" title="¿Y si las ventas fallan?" lead="Elige un escenario o prueba tu propio estrés: toda la inversión del plan, con y sin financiación.">
+    <Section id="escenarios" title="¿Y si las ventas fallan?" lead="El análisis permite elegir un escenario o ajustar el nivel de ventas para la prueba de estrés, con toda la inversión del plan y con o sin financiación.">
       <div className="grid gap-3 md:grid-cols-5">
         {escenarios.map((e) => (
           <button key={e.k} onClick={() => setK(e.k)} className={`rounded-xl p-4 text-left ${k === e.k ? 'bg-plum text-meringue' : 'bg-white shadow-sm'}`}>

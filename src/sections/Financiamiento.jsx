@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Section from '../components/Section'
-import { fuentes, money, cuota, porQueMezcla } from '../data/plan'
+import { fuentes, money, cuota, porQueMezcla, criteriosFinanciamiento } from '../data/plan'
 export default function Financiamiento() {
   const [v, setV] = useState(Object.fromEntries(fuentes.map((f) => [f.id, f.value])))
   const [planB, setPlanB] = useState(false)
@@ -10,7 +10,7 @@ export default function Financiamiento() {
   const total = Object.values(vals).reduce((a, b) => a + b, 0) + (planB ? 250000 : 0)
   const ok = total >= need
   return (
-    <Section id="financiamiento" title="Arma tu propia mezcla de financiación" lead="Propuesta: unos $3,7 millones. Mueve los controles y mira si cubres lo que se necesita." dark>
+    <Section id="financiamiento" title="Mezcla de financiación propuesta" lead="La propuesta asciende a unos $3,7 millones. Los controles permiten ajustar cada fuente y verificar si cubre la necesidad." dark>
       <label className="mb-8 flex items-center gap-3 font-semibold">
         <input type="checkbox" checked={planB} onChange={(e) => setPlanB(e.target.checked)} className="size-5 accent-butter" />
         Plan B: el incentivo no sale y se aplaza el inmueble
@@ -21,7 +21,7 @@ export default function Financiamiento() {
             <div className="flex justify-between"><b>{f.name}</b><span>{money(vals[f.id])}</span></div>
             <input type="range" min="0" max={f.max} step="50000" value={vals[f.id]} disabled={planB && f.id === 'inc'} onChange={(e) => setV({ ...v, [f.id]: +e.target.value })} className="my-3 w-full" style={{ accentColor: f.color === '#2b1230' ? '#fff6fa' : f.color }} />
             <p className="text-sm opacity-80">{f.note}</p>
-            {f.id === 'cre' && <p className="mt-2 text-sm text-butter">Cuota aprox.: {money(cuota(vals.cre))}/mes (12 % a 36 meses, supuesto).</p>}
+            {f.id === 'cre' && <p className="mt-2 text-sm text-butter">Cuota aproximada: {money(cuota(vals.cre))}/mes, calculada con una tasa de 12 % anual a 36 meses, supuesto del equipo.</p>}
           </div>
         ))}
       </div>
@@ -41,12 +41,18 @@ export default function Financiamiento() {
         </div>
         <div className="rounded-2xl border border-white/20 p-5">
           <p className="font-display text-lg font-bold">Cuánto cuesta la deuda</p>
-          <p className="mt-1 text-sm opacity-80">Supuesto del equipo: 12 % anual a 36 meses (no viene del anexo).</p>
+          <p className="mt-1 text-sm opacity-80">La tasa de 12 % anual a 36 meses es un supuesto del equipo; el anexo no la especifica.</p>
           <div className="mt-3 space-y-3 text-sm">
             <p><b>Crédito de $3.500.000:</b> cuota de {money(cuota(3500000))}/mes y {money(cuota(3500000) * 12)}/año (16 % del flujo neto).</p>
             <p><b>Crédito de $600.000:</b> cuota de {money(cuota(600000))}/mes y {money(cuota(600000) * 12)}/año.</p>
           </div>
         </div>
+      </div>
+      <div className="mt-4 rounded-2xl border border-white/20 p-5">
+        <p className="font-display text-lg font-bold">Criterios para seleccionar la mezcla</p>
+        <ul className="mt-3 grid gap-2 text-sm opacity-90 md:grid-cols-2">
+          {criteriosFinanciamiento.map(([t, d]) => <li key={t}><b className="text-butter">{t}:</b> {d}</li>)}
+        </ul>
       </div>
     </Section>
   )

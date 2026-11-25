@@ -18,7 +18,7 @@ export default function Conclusiones() {
       </ol>
       <p className="mt-10 flex items-start gap-3 rounded-xl bg-butter/30 p-4 text-sm">
         <FaCircleCheck className="mt-0.5 shrink-0 text-pistacho" />
-        <span>Cifras de la plantilla de Tiendanube (2024). Las tasas, los plazos y los montos de financiación propuestos son supuestos del equipo y deben confirmarse antes de presentarlos.</span>
+        <span>Las cifras provienen de la plantilla de Tiendanube de 2024. Las tasas, los plazos y los montos de financiación son supuestos del equipo y deben confirmarse antes de la presentación.</span>
       </p>
     </Section>
   )

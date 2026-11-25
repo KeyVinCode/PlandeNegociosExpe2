@@ -22,7 +22,7 @@ export default function Hero() {
           <p className="opacity-80">de caja anual que genera la operación por sí sola</p>
         </div>
         <div>
-          <p className="mb-4 font-semibold">Cinco hallazgos. Toca uno para abrirlo.</p>
+          <p className="mb-4 font-semibold">Cinco hallazgos. Al abrir cada uno se muestra el detalle.</p>
           {hallazgos.map(([t, d], i) => (
             <button key={t} onClick={() => setOpen(i)} className={`mb-3 block w-full rounded-xl border p-4 text-left transition ${open === i ? 'border-butter bg-white/10' : 'border-white/20 hover:bg-white/5'}`}>
               <span className="font-display text-lg font-bold">{t}</span>

@@ -5,7 +5,7 @@ import { riesgos, capitalTrabajo } from '../data/plan'
 export default function Riesgos() {
   const [open, setOpen] = useState(null)
   return (
-    <Section id="riesgos" title="Riesgos y qué hacer con cada uno" lead="Voltea la tarjeta para ver la respuesta." dark>
+    <Section id="riesgos" title="Riesgos y qué hacer con cada uno" lead="Cada tarjeta presenta el riesgo; al abrirla se muestra la acción propuesta." dark>
       <div className="grid gap-4 md:grid-cols-3">
         {riesgos.map(([t, why, fix], i) => (
           <button key={t} onClick={() => setOpen(open === i ? null : i)} className="min-h-40 rounded-xl border border-white/20 p-5 text-left transition hover:border-butter">

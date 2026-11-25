@@ -4,7 +4,7 @@ import { money } from '../data/plan'
 const rows = [['Ventas', 1000000, 2000000], ['Ganancias de ventas', 852200, 1851680]]
 export default function Partida() {
   return (
-    <Section id="partida" title="De dónde parte y a dónde quiere llegar" lead="La meta es doblar las ventas y subir la ganancia sobre ventas de 85,2 % a 92,6 %. Es ambicioso: hay que explicar con qué (precios, compras o surtido).">
+    <Section id="partida" title="De dónde parte y a dónde quiere llegar" lead="La meta es doblar las ventas y subir la ganancia sobre ventas de 85,2 % a 92,6 %. Es ambicioso y exige explicar si se logra con precios, compras a mejor costo o un mejor surtido.">
       <div className="space-y-10">
         {rows.map(([n, a, b]) => (
           <div key={n}>
@@ -19,8 +19,8 @@ export default function Partida() {
           </div>
         ))}
       </div>
-      <p className="mt-10 rounded-xl bg-butter/30 p-4 text-sm">Ojo: ganancias más pérdidas suman $962.000, no $1.000.000. Las cifras vienen de una plantilla (Tiendanube, 2024).</p>
-      <p className="mt-3 rounded-xl border border-berry/20 p-4 text-sm"><b className="text-berry">Aclaración pendiente:</b> el anexo pone la meta de ventas ($2.000.000) y los ingresos del plan ($7.102.300) en la misma tabla. La proyección anual equivale a 3,55 veces la meta: hay que precisar a qué periodo corresponde cada cifra.</p>
+      <p className="mt-10 rounded-xl bg-butter/30 p-4 text-sm">Las ganancias más las pérdidas suman $962.000, no $1.000.000. Las cifras provienen de la plantilla de Tiendanube de 2024.</p>
+      <p className="mt-3 rounded-xl border border-berry/20 p-4 text-sm">El anexo presenta la meta de ventas de $2.000.000 y los ingresos del plan de $7.102.300 en la misma tabla; la proyección anual equivale a 3,55 veces la meta, por lo que conviene precisar el periodo de cada cifra.</p>
     </Section>
   )
 }

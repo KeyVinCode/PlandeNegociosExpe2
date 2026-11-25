@@ -72,6 +72,48 @@ export const porQueMezcla = [
   ['Socios con capital', 'Solo si el equipo quiere mantener la compra del inmueble en el primer año.'],
 ]
 
+// Lectura del flujo por actividades: operación, inversión, financiamiento e IVA
+export const flujoActividades = [
+  ['Operación', 3618600, 'Ventas e ingresos extraordinarios menos proveedores, sueldos, alquiler, servicios y publicidad.'],
+  ['Inversión', -406000, 'Inversión registrada en la tesorería; faltan $2.518.360 del plan.'],
+  ['Financiamiento', 6100000, 'Préstamos por $3.500.000 e incentivos por $2.600.000.'],
+  ['IVA', -585472, 'Salida separada: se revisa si es recuperable o si corresponde al impuesto trasladado.'],
+]
+
+// Estado de resultados simplificado
+export const estadoResultados = {
+  ingresos: 7104600,
+  proveedores: 1500000,
+  gastos: [
+    ['Sueldos y salarios', 1640000],
+    ['Alquileres', 144000],
+    ['Servicios', 12000],
+    ['Publicidad', 190000],
+  ],
+}
+
+// Balance simplificado
+export const balance = {
+  activos: [
+    ['Inmueble', 2000000],
+    ['Mobiliario', 300000],
+    ['IVA de la inversión', 403360],
+    ['Equipos y herramientas', 71000],
+    ['Transporte', 50000],
+    ['Personal y capacitación', 100000],
+  ],
+  pasivo: 3500000,
+  subvenciones: 2600000,
+}
+
+// Criterios para seleccionar la mezcla de financiación
+export const criteriosFinanciamiento = [
+  ['Necesidad', 'La inversión de $2.924.360 más una reserva de $746.245 exige unos $3.670.000.'],
+  ['Costo', 'La deuda del plan cuesta $1.395.000 al año; el crédito de $600.000 cuesta $239.143. Los incentivos no se devuelven y el crowdfunding no paga intereses.'],
+  ['Control', 'La deuda y el crowdfunding de recompensas no diluyen la propiedad; los socios con capital sí lo hacen.'],
+  ['Alineación', 'La mezcla mantiene la compra del inmueble en el primer año; el plan B la aplaza si el incentivo no llega.'],
+]
+
 export const referencias = [
   {
     texto: 'Tiendanube. (2024). Plan financiero de una empresa: ejemplo para tu Pyme.',
@@ -83,7 +125,7 @@ export const referencias = [
     uso: 'Marco de la actividad y estructura del análisis.',
   },
   {
-    texto: 'UNIMINUTO. (s. f.). E-book Unidad 2: Estructura de un plan de negocios [Material del curso].',
-    uso: 'Marco conceptual: proyecciones, flujo de efectivo, estrategias de financiamiento y capital de trabajo.',
+    texto: 'UNIMINUTO. (s. f.). Estructura de un plan de negocios 02 [E-book interactivo, Unidad 2]. Corporación Universitaria Minuto de Dios.',
+    uso: 'Marco conceptual: estados financieros, flujo de efectivo por actividades, estrategias de financiamiento y capital de trabajo.',
   },
 ]
