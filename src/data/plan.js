@@ -80,18 +80,25 @@ export const flujoActividades = [
   ['IVA', -585472, 'Salida separada: corresponde al IVA trasladado y no se resta en la utilidad operativa.'],
 ]
 
-// Estado de resultados simplificado
+// Estado de resultados por cuatrimestre
+export const estadoResultadosCuatris = [
+  { n: '1.º', ingresos: 2304600, proveedores: 400000, sueldos: 440000, alquileres: 48000, servicios: 4000, publicidad: 70000, iva: 185504, inversion: 235000 },
+  { n: '2.º', ingresos: 1300000, proveedores: 400000, sueldos: 500000, alquileres: 48000, servicios: 4000, publicidad: 30000, iva: 176864, inversion: 121000 },
+  { n: '3.º', ingresos: 3500000, proveedores: 700000, sueldos: 700000, alquileres: 48000, servicios: 4000, publicidad: 90000, iva: 223104, inversion: 50000 },
+]
+
+const sumaEstado = (k) => estadoResultadosCuatris.reduce((s, c) => s + c[k], 0)
+
+// Estado de resultados anual: suma de los cuatrimestres
 export const estadoResultados = {
-  ingresos: 7104600,
-  proveedores: 1500000,
-  gastos: [
-    ['Sueldos y salarios', 1640000],
-    ['Alquileres', 144000],
-    ['Servicios', 12000],
-    ['Publicidad', 190000],
-  ],
-  iva: 585472,
-  inversion: 406000,
+  ingresos: sumaEstado('ingresos'),
+  proveedores: sumaEstado('proveedores'),
+  sueldos: sumaEstado('sueldos'),
+  alquileres: sumaEstado('alquileres'),
+  servicios: sumaEstado('servicios'),
+  publicidad: sumaEstado('publicidad'),
+  iva: sumaEstado('iva'),
+  inversion: sumaEstado('inversion'),
 }
 
 // Balance simplificado
