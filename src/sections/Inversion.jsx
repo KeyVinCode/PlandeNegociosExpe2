@@ -23,8 +23,13 @@ export default function Inversion() {
           <p className="font-display text-3xl font-bold">{inversion[i].name}</p>
           <p className="mt-2 text-4xl font-extrabold text-berry">{money(inversion[i].value)}</p>
           <p className="mt-1">{((inversion[i].value / total) * 100).toFixed(1).replace('.', ',')} % de {money(total)}</p>
-          <p className="mt-6 rounded-xl bg-butter/30 p-4 text-sm">Faltan hasta $2.518.360 de egresos en la tesorería.</p>
-          <p className="mt-3 text-xs opacity-70">El IVA del anexo corresponde a la tarifa de 16 % de la plantilla de Tiendanube, México. Bajo la tarifa colombiana de 19 %, la inversión ascendería a $2.999.990.</p>
+          <div className="mt-6 rounded-2xl bg-white p-5 shadow-sm">
+            <p className="font-display text-lg font-bold">Lectura de la inversión</p>
+            <ul className="mt-2 space-y-2 text-sm">
+              <li>La tesorería registra $406.000 de los $2.924.360 invertidos; faltan $2.518.360 de egresos.</li>
+              <li>El IVA del anexo corresponde a la tarifa de 16 % de la plantilla de Tiendanube, México. Bajo la tarifa colombiana de 19 %, la inversión ascendería a $2.999.990.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </Section>

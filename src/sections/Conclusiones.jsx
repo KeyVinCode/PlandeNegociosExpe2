@@ -16,10 +16,13 @@ export default function Conclusiones() {
           </li>
         ))}
       </ol>
-      <p className="mt-10 flex items-start gap-3 rounded-xl bg-butter/30 p-4 text-sm">
-        <FaCircleCheck className="mt-0.5 shrink-0 text-pistacho" />
-        <span>Las cifras provienen de la plantilla de Tiendanube de 2024. Las tasas, los plazos y los montos de financiación son supuestos del equipo y deben confirmarse antes de la presentación.</span>
-      </p>
+      <div className="mt-10 flex items-start gap-3 rounded-2xl bg-white p-6 shadow-sm">
+        <FaCircleCheck className="mt-1 shrink-0 text-pistacho" />
+        <div>
+          <p className="font-display text-lg font-bold">Nota metodológica</p>
+          <p className="mt-1 text-sm">Las cifras provienen de la plantilla de Tiendanube de 2024. El análisis adopta una tasa de 12 % anual a 36 meses; los montos de financiación son decisiones del análisis y se validan con una entidad financiera antes de la presentación.</p>
+        </div>
+      </div>
     </Section>
   )
 }

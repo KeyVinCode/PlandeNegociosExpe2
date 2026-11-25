@@ -14,8 +14,10 @@ export default function Referencias() {
             </li>
           ))}
         </ul>
-        <p className="mt-8 text-sm opacity-70">Las tasas, los plazos y los montos de financiación propuestos son supuestos del equipo, no datos de las fuentes.</p>
-        <p className="mt-2 text-sm opacity-70">Las cifras provienen de la plantilla de Tiendanube de 2024 y no indican moneda; se trabajan en pesos. El IVA aplicado es de 16 %, tarifa de México; en Colombia la tarifa general es de 19 %.</p>
+        <div className="mt-8 rounded-2xl bg-white/5 p-5">
+          <p className="font-display text-lg font-bold">Nota metodológica</p>
+          <p className="mt-2 text-sm opacity-80">Las cifras provienen de la plantilla de Tiendanube de 2024 y no indican moneda; el análisis trabaja en pesos. El IVA aplicado es de 16 %, tarifa de México; en Colombia la tarifa general es de 19 %. Las tasas, los plazos y los montos de financiación son decisiones del análisis, no datos de las fuentes.</p>
+        </div>
         {equipo.length > 0 && (
           <div className="mt-12 border-t border-white/15 pt-8">
             <h2 className="flex items-center gap-3 font-display text-2xl font-extrabold"><FaUsers className="text-butter" />Equipo de trabajo</h2>

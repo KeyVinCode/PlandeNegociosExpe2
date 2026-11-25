@@ -36,7 +36,7 @@ export default function Flujo() {
       <div className="mt-10 grid gap-4 md:grid-cols-2">
         <div className="rounded-2xl bg-white p-6 text-plum shadow-sm">
           <p className="font-display text-xl font-bold">Flujo acumulado</p>
-          <p className="mt-1 text-sm opacity-70">Parte de cero: el anexo no informa un saldo inicial de caja.</p>
+          <p className="mt-1 text-sm opacity-70">El acumulado parte de cero porque el anexo no informa un saldo inicial de caja.</p>
           <div className="mt-4 grid grid-cols-3 gap-2">
             {acumulados.map((v, i) => (
               <div key={cuatris[i].n} className="rounded-lg bg-meringue p-3 text-center">
@@ -47,10 +47,10 @@ export default function Flujo() {
           </div>
           <label className="mt-4 flex items-start gap-2 text-sm">
             <input type="checkbox" checked={conInversion} onChange={(e) => setConInversion(e.target.checked)} className="mt-1 size-4 accent-berry" />
-            <span>Incluir en el 1.º cuatrimestre la inversión que falta en la tesorería ({money(inversionFaltante)})</span>
+            <span>Inversión faltante incluida en el 1.º cuatrimestre ({money(inversionFaltante)})</span>
           </label>
           <p className="mt-3 text-sm">
-            Sin financiación y con toda la inversión, el 1.º cuatrimestre cerraría en <b className="text-berry">{money(valleSinFinanciacion)}</b>: por eso el crédito debe desembolsarse antes del 2.º cuatrimestre.
+            Sin financiación y con toda la inversión, el 1.º cuatrimestre cierra en <b className="text-berry">{money(valleSinFinanciacion)}</b>; el crédito se desembolsa antes del 2.º cuatrimestre para cubrir ese déficit.
           </p>
         </div>
         <div className="rounded-2xl bg-white p-6 text-plum shadow-sm">
@@ -62,7 +62,7 @@ export default function Flujo() {
             <div className="flex justify-between gap-3"><dt>Ventas de equilibrio</dt><dd className="font-semibold">{money(ventasEquilibrio)}</dd></div>
             <div className="flex justify-between gap-3"><dt>Frente al plan</dt><dd className="font-semibold text-pistacho">{pct(pctEquilibrio)}</dd></div>
           </dl>
-          <p className="mt-3 text-sm opacity-70">Cálculo aproximado, sin inversión ni IVA.</p>
+          <p className="mt-3 text-sm opacity-70">El cálculo excluye inversión e IVA.</p>
         </div>
       </div>
       <div className="mt-4 rounded-2xl bg-white p-6 text-plum shadow-sm">

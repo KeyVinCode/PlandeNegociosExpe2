@@ -19,8 +19,13 @@ export default function Partida() {
           </div>
         ))}
       </div>
-      <p className="mt-10 rounded-xl bg-butter/30 p-4 text-sm">Las ganancias más las pérdidas suman $962.000, no $1.000.000. Las cifras provienen de la plantilla de Tiendanube de 2024.</p>
-      <p className="mt-3 rounded-xl border border-berry/20 p-4 text-sm">El anexo presenta la meta de ventas de $2.000.000 y los ingresos del plan de $7.102.300 en la misma tabla; la proyección anual equivale a 3,55 veces la meta, por lo que conviene precisar el periodo de cada cifra.</p>
+      <div className="mt-10 rounded-2xl bg-white p-6 shadow-sm">
+        <p className="font-display text-xl font-bold">Observaciones</p>
+        <ul className="mt-3 space-y-2 text-sm">
+          <li>Las ganancias más las pérdidas suman $962.000, no $1.000.000. Las cifras provienen de la plantilla de Tiendanube de 2024.</li>
+          <li>El anexo presenta la meta de ventas de $2.000.000 y los ingresos del plan de $7.102.300 en la misma tabla; la proyección anual equivale a 3,55 veces la meta, por lo que el periodo de cada cifra debe precisarse.</li>
+        </ul>
+      </div>
     </Section>
   )
 }

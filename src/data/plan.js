@@ -49,13 +49,13 @@ export const conclusiones = [
 // Ejemplo: { nombre: 'Ana Pérez', rol: 'Análisis financiero' }
 export const equipo = []
 
-// Punto de equilibrio operativo (Word, sección 3.2): fijos / (1 - proveedores/ventas)
+// Punto de equilibrio operativo: fijos / (1 - proveedores/ventas)
 export const equilibrio = { fijos: 1986000, proveedores: 1500000, ventas: 7102300 }
 
-// Inversión del plan que no aparece en la tesorería (Word, sección 5)
+// Inversión del plan que no aparece en la tesorería
 export const inversionFaltante = 2518360
 
-// Gestión del capital de trabajo (Word, sección 7.3)
+// Gestión del capital de trabajo
 export const capitalTrabajo = [
   ['Reserva de caja', 'Formar unos $750.000 (dos meses de egresos) con el excedente del 1.º cuatrimestre, antes de que empiece el 2.º.'],
   ['Venta de contado', 'Mantener las ventas de contado; si se abre a empresas, pedir anticipo en pedidos grandes y plazos de cobro cortos.'],
@@ -64,12 +64,12 @@ export const capitalTrabajo = [
   ['Seguimiento mensual', 'Comparar presupuesto contra real cada mes, con alerta si la caja baja de la reserva.'],
 ]
 
-// Justificación de la mezcla de financiación (Word, sección 6.3)
+// Justificación de la mezcla de financiación
 export const porQueMezcla = [
   ['Incentivos como base', 'No se devuelven si se cumplen las condiciones y el plan ya los contempla.'],
   ['Crédito de $600.000 y no de $3.500.000', 'La operación ya genera caja: no hay necesidad de pagar intereses por dinero que sobra.'],
   ['Crowdfunding de recompensas', 'Cajas de temporada, tortas por encargo o suscripciones traen efectivo antes de comprar insumos y prueban la demanda.'],
-  ['Socios con capital', 'Solo si el equipo quiere mantener la compra del inmueble en el primer año.'],
+  ['Socios con capital', 'Solo si se mantiene la compra del inmueble en el primer año; implica ceder participación.'],
 ]
 
 // Lectura del flujo por actividades: operación, inversión, financiamiento e IVA
@@ -77,7 +77,7 @@ export const flujoActividades = [
   ['Operación', 3618600, 'Ventas e ingresos extraordinarios menos proveedores, sueldos, alquiler, servicios y publicidad.'],
   ['Inversión', -406000, 'Inversión registrada en la tesorería; faltan $2.518.360 del plan.'],
   ['Financiamiento', 6100000, 'Préstamos por $3.500.000 e incentivos por $2.600.000.'],
-  ['IVA', -585472, 'Salida separada: se revisa si es recuperable o si corresponde al impuesto trasladado.'],
+  ['IVA', -585472, 'Salida separada: corresponde al IVA trasladado y no se resta en la utilidad operativa.'],
 ]
 
 // Estado de resultados simplificado
@@ -90,6 +90,8 @@ export const estadoResultados = {
     ['Servicios', 12000],
     ['Publicidad', 190000],
   ],
+  iva: 585472,
+  inversion: 406000,
 }
 
 // Balance simplificado

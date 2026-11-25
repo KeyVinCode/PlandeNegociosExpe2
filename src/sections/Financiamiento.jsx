@@ -21,7 +21,7 @@ export default function Financiamiento() {
             <div className="flex justify-between"><b>{f.name}</b><span>{money(vals[f.id])}</span></div>
             <input type="range" min="0" max={f.max} step="50000" value={vals[f.id]} disabled={planB && f.id === 'inc'} onChange={(e) => setV({ ...v, [f.id]: +e.target.value })} className="my-3 w-full" style={{ accentColor: f.color === '#2b1230' ? '#fff6fa' : f.color }} />
             <p className="text-sm opacity-80">{f.note}</p>
-            {f.id === 'cre' && <p className="mt-2 text-sm text-butter">Cuota aproximada: {money(cuota(vals.cre))}/mes, calculada con una tasa de 12 % anual a 36 meses, supuesto del equipo.</p>}
+            {f.id === 'cre' && <p className="mt-2 text-sm text-butter">Cuota de {money(cuota(vals.cre))}/mes, calculada con una tasa de 12 % anual a 36 meses.</p>}
           </div>
         ))}
       </div>
@@ -41,7 +41,7 @@ export default function Financiamiento() {
         </div>
         <div className="rounded-2xl border border-white/20 p-5">
           <p className="font-display text-lg font-bold">Cuánto cuesta la deuda</p>
-          <p className="mt-1 text-sm opacity-80">La tasa de 12 % anual a 36 meses es un supuesto del equipo; el anexo no la especifica.</p>
+          <p className="mt-1 text-sm opacity-80">El anexo no especifica tasa ni plazo; el análisis adopta 12 % anual a 36 meses.</p>
           <div className="mt-3 space-y-3 text-sm">
             <p><b>Crédito de $3.500.000:</b> cuota de {money(cuota(3500000))}/mes y {money(cuota(3500000) * 12)}/año (16 % del flujo neto).</p>
             <p><b>Crédito de $600.000:</b> cuota de {money(cuota(600000))}/mes y {money(cuota(600000) * 12)}/año.</p>
