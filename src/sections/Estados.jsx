@@ -1,15 +1,14 @@
 import Section from '../components/Section'
-import { money, estadoResultados, balance } from '../data/plan'
+import { money, estadoResultados, balance, balancePropuesto } from '../data/plan'
 
 export default function Estados() {
   const bruto = estadoResultados.ingresos - estadoResultados.proveedores
   const gastos = estadoResultados.gastos.reduce((s, [, v]) => s + v, 0)
   const operativa = bruto - gastos
-  const flujoOperacion = operativa - estadoResultados.iva - estadoResultados.inversion
-  const activos = balance.activos.reduce((s, [, v]) => s + v, 0)
-  const patrimonio = activos - balance.pasivo + balance.subvenciones
+  const inversionTotal = balance.activos.reduce((s, [, v]) => s + v, 0)
+  const totalActivos = inversionTotal + balance.efectivo
+  const patrimonio = balance.patrimonio
   const pct = (v, base) => `${((v / base) * 100).toFixed(1).replace('.', ',')} %`
-  const num = (n) => Math.round(n).toLocaleString('es-CO')
   return (
     <Section id="estados" title="Estado de resultados y balance" lead="El anexo entrega ingresos y egresos; el análisis los ordena en un estado de resultados y un balance simplificados, con la estructura del e-book de la unidad.">
       <div className="grid gap-6 md:grid-cols-2">
@@ -32,50 +31,32 @@ export default function Estados() {
             {balance.activos.map(([n, v]) => (
               <div key={n} className="flex justify-between gap-3"><dt>{n}</dt><dd>{money(v)}</dd></div>
             ))}
-            <div className="flex justify-between gap-3 border-t border-plum/10 pt-2 font-semibold"><dt>Total activos</dt><dd>{money(activos)}</dd></div>
-            <div className="flex justify-between gap-3"><dt>Pasivo: préstamo del plan</dt><dd>{money(-balance.pasivo)}</dd></div>
-            <div className="flex justify-between gap-3"><dt>Subvenciones e incentivos</dt><dd>{money(balance.subvenciones)}</dd></div>
-            <div className="flex justify-between gap-3 border-t border-plum/10 pt-2 font-semibold"><dt>Patrimonio</dt><dd className={patrimonio < 0 ? 'text-berry' : 'text-pistacho'}>{money(patrimonio)}</dd></div>
+            <div className="flex justify-between gap-3"><dt>Efectivo disponible</dt><dd>{money(balance.efectivo)}</dd></div>
+            <div className="flex justify-between gap-3 border-t border-plum/10 pt-2 font-semibold"><dt>Total activos</dt><dd>{money(totalActivos)}</dd></div>
+            <div className="flex justify-between gap-3"><dt>Pasivo: préstamo del plan</dt><dd>{money(balance.pasivo)}</dd></div>
+            <div className="flex justify-between gap-3"><dt>Patrimonio: subvenciones e incentivos</dt><dd>{money(patrimonio)}</dd></div>
+            <div className="flex justify-between gap-3 border-t border-plum/10 pt-2 font-semibold"><dt>Total pasivo + patrimonio</dt><dd>{money(balance.pasivo + patrimonio)}</dd></div>
           </dl>
-          <p className="mt-4 text-sm opacity-70">Con el préstamo del plan el pasivo supera los activos y el patrimonio queda en {money(activos - balance.pasivo)} antes de las subvenciones. Con el crédito propuesto de $600.000 el patrimonio sería positivo. El capital de trabajo se estima en dos meses de egresos, {money(746245)}, porque el anexo no desagrega activos y pasivos corrientes.</p>
+          <p className="mt-4 text-sm opacity-70">La ecuación contable se cumple: activos = pasivo + patrimonio. El efectivo disponible resulta de la financiación total menos la inversión. El capital de trabajo se estima en dos meses de egresos, {money(746245)}, porque el anexo no desagrega activos y pasivos corrientes.</p>
         </div>
       </div>
       <div className="mt-4 rounded-2xl bg-white p-6 shadow-sm">
-        <p className="font-display text-xl font-bold">Operación contable</p>
-        <div className="mt-4 overflow-x-auto">
-          <table className="w-full text-left text-sm">
-            <thead>
-              <tr className="border-b border-plum/10 text-xs uppercase tracking-wide opacity-60">
-                <th className="py-2">Concepto</th>
-                <th className="py-2">Operación</th>
-                <th className="py-2 text-right">Resultado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="border-b border-plum/5">
-                <td className="py-2">Utilidad bruta</td>
-                <td className="py-2">{num(estadoResultados.ingresos)} − {num(estadoResultados.proveedores)}</td>
-                <td className="py-2 text-right font-semibold">{money(bruto)}</td>
-              </tr>
-              <tr className="border-b border-plum/5">
-                <td className="py-2">Utilidad operativa</td>
-                <td className="py-2">{num(bruto)} − {num(gastos)}</td>
-                <td className="py-2 text-right font-semibold">{money(operativa)}</td>
-              </tr>
-              <tr className="border-b border-plum/5">
-                <td className="py-2">Flujo de operación</td>
-                <td className="py-2">{num(operativa)} − {num(estadoResultados.iva)} − {num(estadoResultados.inversion)}</td>
-                <td className="py-2 text-right font-semibold">{money(flujoOperacion)}</td>
-              </tr>
-              <tr>
-                <td className="py-2">Patrimonio</td>
-                <td className="py-2">{num(activos)} − {num(balance.pasivo)} + {num(balance.subvenciones)}</td>
-                <td className="py-2 text-right font-semibold">{money(patrimonio)}</td>
-              </tr>
-            </tbody>
-          </table>
+        <p className="font-display text-xl font-bold">Ecuación contable</p>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <div className="rounded-xl bg-meringue p-4">
+            <p className="text-xs uppercase tracking-wide opacity-60">Plan original</p>
+            <p className="mt-1 font-display text-lg font-bold">Activos = Pasivo + Patrimonio</p>
+            <p className="mt-2 text-lg">{money(totalActivos)} = {money(balance.pasivo)} + {money(patrimonio)}</p>
+            <p className="mt-1 text-sm opacity-70">Efectivo disponible: {money(balance.efectivo)}</p>
+          </div>
+          <div className="rounded-xl bg-meringue p-4">
+            <p className="text-xs uppercase tracking-wide opacity-60">Mezcla propuesta</p>
+            <p className="mt-1 font-display text-lg font-bold">Activos = Pasivo + Patrimonio</p>
+            <p className="mt-2 text-lg">{money(balancePropuesto.activos)} = {money(balancePropuesto.pasivo)} + {money(balancePropuesto.patrimonio)}</p>
+            <p className="mt-1 text-sm opacity-70">Efectivo disponible: {money(balancePropuesto.efectivo)}</p>
+          </div>
         </div>
-        <p className="mt-4 text-sm opacity-70">Las operaciones parten del estado de resultados y del balance; el flujo de operación coincide con el del anexo.</p>
+        <p className="mt-4 text-sm opacity-70">En ambos casos la igualdad se cumple y el efectivo completa los activos.</p>
       </div>
     </Section>
   )

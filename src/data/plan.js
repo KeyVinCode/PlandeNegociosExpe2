@@ -104,9 +104,12 @@ export const balance = {
     ['Transporte', 50000],
     ['Personal y capacitación', 100000],
   ],
+  efectivo: 3175640,
   pasivo: 3500000,
-  subvenciones: 2600000,
+  patrimonio: 2600000,
 }
+
+export const balancePropuesto = { activos: 3700000, pasivo: 600000, patrimonio: 3100000, efectivo: 775640 }
 
 // Criterios para seleccionar la mezcla de financiación
 export const criteriosFinanciamiento = [
