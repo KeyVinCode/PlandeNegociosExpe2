@@ -45,6 +45,33 @@ export const conclusiones = [
   'Reserva de $750.000 y plan B hacen que el plan resista ventas 20 % más bajas.',
 ]
 
+// Equipo de trabajo: completar con los nombres reales antes de la entrega.
+// Ejemplo: { nombre: 'Ana Pérez', rol: 'Análisis financiero' }
+export const equipo = []
+
+// Punto de equilibrio operativo (Word, sección 3.2): fijos / (1 - proveedores/ventas)
+export const equilibrio = { fijos: 1986000, proveedores: 1500000, ventas: 7102300 }
+
+// Inversión del plan que no aparece en la tesorería (Word, sección 5)
+export const inversionFaltante = 2518360
+
+// Gestión del capital de trabajo (Word, sección 7.3)
+export const capitalTrabajo = [
+  ['Reserva de caja', 'Formar unos $750.000 (dos meses de egresos) con el excedente del 1.º cuatrimestre, antes de que empiece el 2.º.'],
+  ['Venta de contado', 'Mantener las ventas de contado; si se abre a empresas, pedir anticipo en pedidos grandes y plazos de cobro cortos.'],
+  ['Plazo con proveedores', 'Negociar plazo para el 3.º cuatrimestre, cuando las compras suben 75 % (de $400.000 a $700.000).'],
+  ['Contratación por tramos', 'Ligar cada nueva contratación a metas de ventas.'],
+  ['Seguimiento mensual', 'Comparar presupuesto contra real cada mes, con alerta si la caja baja de la reserva.'],
+]
+
+// Justificación de la mezcla de financiación (Word, sección 6.3)
+export const porQueMezcla = [
+  ['Incentivos como base', 'No se devuelven si se cumplen las condiciones y el plan ya los contempla.'],
+  ['Crédito de $600.000 y no de $3.500.000', 'La operación ya genera caja: no hay necesidad de pagar intereses por dinero que sobra.'],
+  ['Crowdfunding de recompensas', 'Cajas de temporada, tortas por encargo o suscripciones traen efectivo antes de comprar insumos y prueban la demanda.'],
+  ['Socios con capital', 'Solo si el equipo quiere mantener la compra del inmueble en el primer año.'],
+]
+
 export const referencias = [
   {
     texto: 'Tiendanube. (2024). Plan financiero de una empresa: ejemplo para tu Pyme.',
@@ -54,5 +81,9 @@ export const referencias = [
   {
     texto: 'Corporación Universitaria Minuto de Dios – UNIMINUTO. (s. f.). Estructura de un plan de negocios: anexo de actividad experiencial, Unidad 2. Plan financiero empresa Dulce Placer.',
     uso: 'Marco de la actividad y estructura del análisis.',
+  },
+  {
+    texto: 'UNIMINUTO. (s. f.). E-book Unidad 2: Estructura de un plan de negocios [Material del curso].',
+    uso: 'Marco conceptual: proyecciones, flujo de efectivo, estrategias de financiamiento y capital de trabajo.',
   },
 ]

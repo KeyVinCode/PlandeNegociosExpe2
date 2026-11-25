@@ -20,6 +20,7 @@ export default function Partida() {
         ))}
       </div>
       <p className="mt-10 rounded-xl bg-butter/30 p-4 text-sm">Ojo: ganancias más pérdidas suman $962.000, no $1.000.000. Las cifras vienen de una plantilla (Tiendanube, 2024).</p>
+      <p className="mt-3 rounded-xl border border-berry/20 p-4 text-sm"><b className="text-berry">Aclaración pendiente:</b> el anexo pone la meta de ventas ($2.000.000) y los ingresos del plan ($7.102.300) en la misma tabla. La proyección anual equivale a 3,55 veces la meta: hay que precisar a qué periodo corresponde cada cifra.</p>
     </Section>
   )
 }

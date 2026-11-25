@@ -1,5 +1,5 @@
-import { FaBookOpen } from 'react-icons/fa6'
-import { referencias } from '../data/plan'
+import { FaBookOpen, FaUsers } from 'react-icons/fa6'
+import { referencias, equipo } from '../data/plan'
 export default function Referencias() {
   return (
     <footer id="referencias" className="bg-plum text-meringue">
@@ -15,6 +15,15 @@ export default function Referencias() {
           ))}
         </ul>
         <p className="mt-8 text-sm opacity-70">Las tasas, los plazos y los montos de financiación propuestos son supuestos del equipo, no datos de las fuentes.</p>
+        <p className="mt-2 text-sm opacity-70">Cifras de la plantilla de Tiendanube (2024), sin moneda explícita: se trabajan en pesos. El IVA de la plantilla es 16 % (México); en Colombia la tarifa general es 19 %.</p>
+        {equipo.length > 0 && (
+          <div className="mt-12 border-t border-white/15 pt-8">
+            <h2 className="flex items-center gap-3 font-display text-2xl font-extrabold"><FaUsers className="text-butter" />Equipo de trabajo</h2>
+            <ul className="mt-4 flex flex-wrap gap-3">
+              {equipo.map((m) => <li key={m.nombre} className="rounded-full border border-white/20 px-4 py-2 text-sm"><b>{m.nombre}</b> · {m.rol}</li>)}
+            </ul>
+          </div>
+        )}
       </div>
     </footer>
   )

@@ -24,6 +24,7 @@ export default function Inversion() {
           <p className="mt-2 text-4xl font-extrabold text-berry">{money(inversion[i].value)}</p>
           <p className="mt-1">{((inversion[i].value / total) * 100).toFixed(1).replace('.', ',')} % de {money(total)}</p>
           <p className="mt-6 rounded-xl bg-butter/30 p-4 text-sm">Faltan hasta $2.518.360 de egresos en la tesorería.</p>
+          <p className="mt-3 text-xs opacity-70">El IVA del anexo es 16 % sobre $2.521.000 (tarifa de la plantilla de Tiendanube, México). Si el plan se presenta en Colombia (19 %), la inversión sube a $2.999.990.</p>
         </div>
       </div>
     </Section>

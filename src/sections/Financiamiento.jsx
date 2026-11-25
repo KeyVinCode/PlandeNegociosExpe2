@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import Section from '../components/Section'
-import { fuentes, money, cuota } from '../data/plan'
+import { fuentes, money, cuota, porQueMezcla } from '../data/plan'
 export default function Financiamiento() {
   const [v, setV] = useState(Object.fromEntries(fuentes.map((f) => [f.id, f.value])))
   const [planB, setPlanB] = useState(false)
@@ -25,12 +25,28 @@ export default function Financiamiento() {
           </div>
         ))}
       </div>
-      {planB && <p className="mt-4 text-sm opacity-80">Incluye unos $250.000 del excedente de caja del 1.º cuatrimestre.</p>}
+      {planB && <p className="mt-4 text-sm opacity-80">Se aplaza el inmueble: la inversión baja a $604.360 y, con la reserva, la necesidad queda en $1,35 millones. Se cubre con el crédito, los recursos propios, el crowdfunding y unos $250.000 del excedente del 1.º cuatrimestre.</p>}
       <div className="mt-8">
         <div className="h-5 overflow-hidden rounded-full bg-white/15">
           <motion.div className={`h-full ${ok ? 'bg-pistacho' : 'bg-berry'}`} animate={{ width: `${Math.min(100, (total / need) * 100)}%` }} />
         </div>
         <p className="mt-3 text-lg">{money(total)} de {money(need)} necesarios: <b className="text-butter">{ok ? (total > need * 1.15 ? 'cubierto, con más deuda de la necesaria' : 'cubierto') : `faltan ${money(need - total)}`}</b></p>
+      </div>
+      <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="rounded-2xl border border-white/20 p-5">
+          <p className="font-display text-lg font-bold">Por qué esta mezcla</p>
+          <ul className="mt-3 space-y-2 text-sm opacity-90">
+            {porQueMezcla.map(([t, d]) => <li key={t}><b className="text-butter">{t}:</b> {d}</li>)}
+          </ul>
+        </div>
+        <div className="rounded-2xl border border-white/20 p-5">
+          <p className="font-display text-lg font-bold">Cuánto cuesta la deuda</p>
+          <p className="mt-1 text-sm opacity-80">Supuesto del equipo: 12 % anual a 36 meses (no viene del anexo).</p>
+          <div className="mt-3 space-y-3 text-sm">
+            <p><b>Crédito de $3.500.000:</b> cuota de {money(cuota(3500000))}/mes y {money(cuota(3500000) * 12)}/año (16 % del flujo neto).</p>
+            <p><b>Crédito de $600.000:</b> cuota de {money(cuota(600000))}/mes y {money(cuota(600000) * 12)}/año.</p>
+          </div>
+        </div>
       </div>
     </Section>
   )
